@@ -1,4 +1,4 @@
-package  MergeTwoSortedLists;
+package MergekSortedLists;
 
 class ListNode {
     int val;

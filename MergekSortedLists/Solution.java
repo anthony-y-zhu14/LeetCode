@@ -1,4 +1,4 @@
-package MergeTwoSortedLists;
+package MergekSortedLists;
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -10,36 +10,36 @@ package MergeTwoSortedLists;
  * }
  */
 class Solution {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists.length == 0){
+            return null;
+        }
+        ListNode dummy = new ListNode();          
+        dummy.next = lists[0];
+        for (int i = 1; i < lists.length; i++) {
+            dummy.next = mergeTwoLists(dummy.next, lists[i]);
+        }
         
-        ListNode dummy = new ListNode();    
+        return dummy.next;
         
+    }
+    
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {        
+        ListNode dummy = new ListNode();  
         ListNode current = dummy;
-
         while (l1 != null || l2 != null){
-            if (l1 == null){
-                current.next = new ListNode(l2.val);
-                l2 = l2.next;
-            }
-            else if (l2 == null){
-                current.next = new ListNode(l1.val);
-                l1 = l1.next;
-            }
-            else if (l1.val > l2.val){
+            if (l1 == null || l1.val > l2.val){
                 current.next = new ListNode(l2.val);
                 l2 = l2.next;
             }
             else {
                 current.next = new ListNode(l1.val);
                 l1 = l1.next;
-            }
-            current = current.next;
-            
+            }          
+            current = current.next;            
         }
-
         return dummy.next;
     } 
-
 }
 
 
