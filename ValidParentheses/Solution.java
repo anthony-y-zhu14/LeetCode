@@ -6,15 +6,13 @@ import java.util.LinkedList;
 class Solution {
     public boolean isValid(String s) {
         LinkedList<Character> bracket = new LinkedList<>(); 
-        for (char c : s.toCharArray()) {
-            
+        for (char c : s.toCharArray()) {            
             if (isClosingBracket(c) && bracket.isEmpty()){               
                 return false;
             }
             if (isClosingBracket(c) && bracket.getLast() != oppositeBracket(c)){               
                 return false;
             }
-
             if (isOpeningBracket(c)){
                 bracket.addLast(c);
             }            
@@ -46,85 +44,6 @@ class Solution {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
