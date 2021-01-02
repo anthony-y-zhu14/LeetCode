@@ -1,13 +1,11 @@
 package ValidParentheses;
-
-
 import java.util.LinkedList;
 
 class Solution {
     public boolean isValid(String s) {
         LinkedList<Character> bracket = new LinkedList<>(); 
         for (char c : s.toCharArray()) {            
-            if (isClosingBracket(c) && bracket.isEmpty()){               
+            if (isClosingBracket(c) && bracket.isEmpty()) {               
                 return false;
             }
             if (isClosingBracket(c) && bracket.getLast() != oppositeBracket(c)){               
